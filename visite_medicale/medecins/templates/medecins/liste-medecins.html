@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    liste medecins
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Prenoms</th>
+                <th>Grade</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for medecin in medecins %}
+
+                <tr>
+                    <td> {{ medecin.id }} </td>
+                    <td> {{ medecin.nom }} </td>
+                    <td> {{ medecin.prenoms }} </td>
+                    <td> {{ medecin.grade }} </td>
+                    <td>
+                        <a href="{% url 'supprimer-medecins' pk=medecin.id %}">Supprimer</a>
+                        <a href="{% url 'modifier-medecins' pk=medecin.id %}">Modifier</a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
